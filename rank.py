@@ -2,10 +2,7 @@ from os import remove
 
 
 i, j = map(int, input().split())
-map = {}
-list = []
-for x in range(i):
-    list.append("T" + str(x+1))
+list = ["T" + str(x+1) for x in range(i)]
     
 for z in range(j): 
     line = input().split()
