@@ -1,15 +1,24 @@
-from re import M
-
-
-list = [input().split() for i in range(int(input()))]
-map = {}
-for i in range(len(list)):
-    for j in range(3):
-        if j != 0:
-            map[list[i][j]] = map.get(list[i][j],0)+1
-count = 0
-print(map)
-for key, value in map.items():
-    if(value==2):
-        count+=1
-print(count if count%3==0 else 'No trades possible')
+n = int(input())
+has = {}
+wants = {}
+for i in range(n):
+    p, h, w = input().split()
+    has[h] = p
+    wants[p] = w
+longest = 0
+isCycle = False
+for i in wants:
+    s = i
+    count =0
+    while s in wants and wants[s] in has:
+        s = has[wants[s]] 
+        count += 1
+        if s == i:
+            isCycle = True
+            break 
+    if isCycle:
+        longest = max(longest, count)
+if longest > 0: 
+    print(longest)
+else: 
+    print("No trades possible")
