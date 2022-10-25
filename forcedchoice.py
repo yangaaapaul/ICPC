@@ -5,5 +5,5 @@ for i in range(z):
     for num in line[1:]:
         if int(num) == y:
             Found = True
-            break;
+            break
     print("Keep" if Found else "REMOVE")
