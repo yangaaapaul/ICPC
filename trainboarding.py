@@ -1,14 +1,10 @@
-from collections import Counter
-from math import modf
-
-
 x,y,z = map(int, input().split())
-loc = [int(input()) for i in range(z)]
-dist = 0
-map = Counter()
-for i in loc:
-    map[i//y + 1]+=1
-    dist = max(dist, abs((i//y + 0.5) * y - i))
-    print(abs((i//y + 0.5) * y - i))
-print(round(dist))
-print(map.most_common(1)[0][1])
+train = [0] * x
+maxWalk = 0
+for i in range(z): 
+    d = int(input())
+    car = min(x-1, d//y)
+    train[car] += 1
+    maxWalk = max(maxWalk, abs((car * y + y//2) -d))
+print(maxWalk)
+print(max(train))
