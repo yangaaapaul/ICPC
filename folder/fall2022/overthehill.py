@@ -10,7 +10,7 @@ letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 '
 map = {letters[i]: i for i in range(len(letters))}
 result = []
 
-for i in range(len(message)//n):
+for i in range(len(message)//n):   
     chunk = message[n*i:n*(i+1)]
     x = [map[l] for l in chunk]
     for j in range(n):
